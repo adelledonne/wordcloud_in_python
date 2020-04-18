@@ -15,30 +15,30 @@ currdir = path.dirname(__file__)
 
 mask_num = random.randint(1,4)
 if mask_num == 1:
-    mask = np.array(Image.open(path.join(currdir, "flower_3.jpeg")))
+    mask = np.array(Image.open(path.join(currdir, "images/flower_3.jpeg")))
 elif mask_num == 2:
-    mask = np.array(Image.open(path.join(currdir, "cloud1.png")))
+    mask = np.array(Image.open(path.join(currdir, "images/cloud1.png")))
 elif mask_num == 3:
-    mask = np.array(Image.open(path.join(currdir, "heart.jpg")))
+    mask = np.array(Image.open(path.join(currdir, "images/heart.jpg")))
 elif mask_num == 4:
-    mask = np.array(Image.open(path.join(currdir, "star.png")))
+    mask = np.array(Image.open(path.join(currdir, "images/star.jpg")))
 
 stopwords = set(STOPWORDS)
 font_num = random.randint(1,6)
 if font_num == 1:
-    font_path = './fonts/Fondamento/Fondamento-Regular.ttf'
+    font = path.join(currdir, 'fonts/Fondamento/Fondamento-Regular.ttf')
 elif font_num == 2:
-    font_path = './fonts/Vidaloka/Vidaloka-Regular.ttf'
+    font = path.join(currdir, 'fonts/Vidaloka/Vidaloka-Regular.ttf')
 elif font_num == 3:
-    font_path = './fonts/Simonetta/Simonetta-Regular.ttf'
+    font = path.join(currdir, 'fonts/Simonetta/Simonetta-Regular.ttf')
 elif font_num == 4:
-    font_path = './fonts/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf'
+    font = path.join(currdir, 'fonts/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf')
 elif font_num == 5:
-    font_path = './fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf'
+    font = path.join(currdir, 'fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf')
 elif font_num == 6:
-    font_path = './fonts/Advent_Pro/AdventPro-Regular.ttf'
+    font = path.join(currdir, 'fonts/Advent_Pro/AdventPro-Regular.ttf')
 
-title = wikipedia.search("Gerbera")
+title = wikipedia.search("Gerbera Daisy")
 
 # get wikipedia page for selected title
 page = wikipedia.page(title)
@@ -49,8 +49,8 @@ wc = WordCloud(width = 400, height = 400,
                 stopwords = stopwords, 
                 min_font_size = 10, 
                 max_words=1000,
-                mask=mask, 
-                font_path=font_path)
+                mask=mask,
+                font_path=font)
 # generate word cloud
 wc.generate(text)
 
