@@ -23,6 +23,7 @@ elif mask_num == 3:
 elif mask_num == 4:
     mask = np.array(Image.open(path.join(currdir, "images/star.jpg")))
 
+
 stopwords = set(STOPWORDS)
 font_num = random.randint(1,6)
 if font_num == 1:
@@ -38,19 +39,20 @@ elif font_num == 5:
 elif font_num == 6:
     font = path.join(currdir, 'fonts/Advent_Pro/AdventPro-Regular.ttf')
 
-title = wikipedia.search("Gerbera Daisy")
+title = wikipedia.search("The Rolling Stones")
 
 # get wikipedia page for selected title
 page = wikipedia.page(title)
 text = page.content
 
-wc = WordCloud(width = 400, height = 400, 
+wc = WordCloud(width = 800, height = 800, 
                 background_color ='white', 
                 stopwords = stopwords, 
-                min_font_size = 10, 
+                min_font_size = 2, 
                 max_words=1000,
                 mask=mask,
-                font_path=font)
+                font_path=font, 
+                relative_scaling=.5)
 # generate word cloud
 wc.generate(text)
 
