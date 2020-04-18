@@ -15,13 +15,13 @@ currdir = path.dirname(__file__)
 
 mask_num = random.randint(1,4)
 if mask_num == 1:
-    mask = np.array(Image.open(path.join(currdir, "flower_3.jpeg")))
+    mask = np.array(Image.open(path.join(currdir, "images/flower_3.jpeg")))
 elif mask_num == 2:
-    mask = np.array(Image.open(path.join(currdir, "cloud1.png")))
+    mask = np.array(Image.open(path.join(currdir, "images/cloud1.png")))
 elif mask_num == 3:
-    mask = np.array(Image.open(path.join(currdir, "heart.jpg")))
+    mask = np.array(Image.open(path.join(currdir, "images/heart.jpg")))
 elif mask_num == 4:
-    mask = np.array(Image.open(path.join(currdir, "star.jpg")))
+    mask = np.array(Image.open(path.join(currdir, "images/star.jpg")))
 
 stopwords = set(STOPWORDS)
 font_num = random.randint(1,6)
@@ -49,7 +49,7 @@ wc = WordCloud(width = 400, height = 400,
                 stopwords = stopwords, 
                 min_font_size = 10, 
                 max_words=1000,
-                # mask=mask,
+                mask=mask,
                 font_path=font)
 # generate word cloud
 wc.generate(text)
